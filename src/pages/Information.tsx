@@ -39,96 +39,80 @@ export default function Information() {
         </div>
       </section>
 
-      {/* About Me Section */}
-      <section className="py-16 px-4">
+      {/* Content Grid */}
+      <section className="py-12 px-4">
         <div className="container mx-auto max-w-4xl">
-          <div className="bg-card rounded-3xl p-8 mb-12 shadow-card">
-            <div className="flex items-center gap-4 mb-6">
-              <Heart className="h-8 w-8 text-pink" />
-              <h2 className="text-3xl font-bold text-card-foreground">About the Creator</h2>
-            </div>
-            <div className="text-card-foreground space-y-4">
-              <p className="text-lg leading-relaxed">
-                Hi there! I'm the creator behind QuoCraft - a passionate DIY enthusiast who loves 
-                turning digital creativity into hands-on fun! 🎨
-              </p>
-              <p className="text-lg leading-relaxed">
-                I started this project because I believe in the magic of creating something 
-                tangible with your own hands. There's nothing quite like seeing a flat piece 
-                of paper transform into a 3D masterpiece!
-              </p>
-              <p className="text-lg leading-relaxed">
-                Whether you're a parent looking for a fun activity with your kids, a teacher 
-                seeking creative classroom projects, or just someone who loves crafting - 
-                QuoCraft is here to spark joy and creativity! ✨
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Safety Section */}
-      <section className="py-16 px-4">
-        <div className="container mx-auto max-w-4xl">
-          <div className="bg-card rounded-3xl p-8 mb-12 shadow-card">
-            <div className="flex items-center gap-4 mb-6">
-              <Scissors className="h-8 w-8 text-lime" />
-              <h2 className="text-3xl font-bold text-card-foreground">Safety First!</h2>
-            </div>
-            <div className="bg-lime/10 rounded-2xl p-6 border-2 border-lime/20">
-              <div className="text-card-foreground space-y-4">
-                <p className="text-lg font-semibold text-lime">
-                  ⚠️ Important Safety Guidelines
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            {/* About Me */}
+            <div className="bg-card rounded-2xl p-6 shadow-card">
+              <div className="flex items-center gap-3 mb-4">
+                <Heart className="h-6 w-6 text-pink" />
+                <h2 className="text-xl font-bold text-card-foreground">About the Creator</h2>
+              </div>
+              <div className="text-card-foreground space-y-3">
+                <p className="text-sm leading-relaxed">
+                  Hi there! I'm the creator behind QuoCraft - a passionate DIY enthusiast who loves 
+                  turning digital creativity into hands-on fun!
                 </p>
-                <ul className="space-y-3 text-lg">
-                  <li className="flex items-start gap-3">
-                    <span className="text-lime font-bold">•</span>
-                    <span><strong>Always ask an adult for help</strong> when using scissors or craft knives</span>
+                <p className="text-sm leading-relaxed">
+                  I started this project because I believe in the magic of creating something 
+                  tangible with your own hands.
+                </p>
+              </div>
+            </div>
+
+            {/* Safety */}
+            <div className="bg-card rounded-2xl p-6 shadow-card">
+              <div className="flex items-center gap-3 mb-4">
+                <Scissors className="h-6 w-6 text-lime" />
+                <h2 className="text-xl font-bold text-card-foreground">Safety First!</h2>
+              </div>
+              <div className="bg-lime/10 rounded-xl p-4 border border-lime/20">
+                <p className="text-sm font-semibold text-lime mb-2">Important Guidelines</p>
+                <ul className="space-y-2 text-sm">
+                  <li className="flex items-start gap-2">
+                    <span className="text-lime font-bold text-xs">•</span>
+                    <span>Always ask an adult for help with scissors</span>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-lime font-bold">•</span>
-                    <span><strong>Work in a well-lit area</strong> to see cut lines clearly</span>
+                  <li className="flex items-start gap-2">
+                    <span className="text-lime font-bold text-xs">•</span>
+                    <span>Work in a well-lit area</span>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-lime font-bold">•</span>
-                    <span><strong>Use child-safe glue</strong> and avoid getting it on your skin</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-lime font-bold">•</span>
-                    <span><strong>Perfect for workshops, schools,</strong> and supervised craft time!</span>
+                  <li className="flex items-start gap-2">
+                    <span className="text-lime font-bold text-xs">•</span>
+                    <span>Use child-safe glue</span>
                   </li>
                 </ul>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Legal Section */}
-      <section className="py-16 px-4">
-        <div className="container mx-auto max-w-4xl">
-          <div className="bg-card rounded-3xl p-8 mb-12 shadow-card">
-            <div className="flex items-center gap-4 mb-6">
-              <Shield className="h-8 w-8 text-blue" />
-              <h2 className="text-3xl font-bold text-card-foreground">Legal Information</h2>
+            {/* Legal */}
+            <div className="bg-card rounded-2xl p-6 shadow-card">
+              <div className="flex items-center gap-3 mb-4">
+                <Shield className="h-6 w-6 text-blue" />
+                <h2 className="text-xl font-bold text-card-foreground">Legal Information</h2>
+              </div>
+              <div className="text-card-foreground space-y-3 text-sm">
+                <p><strong>Personal Use Only:</strong> All models are for personal, educational use only.</p>
+                <p><strong>Attribution:</strong> Social media mentions are appreciated but not required.</p>
+                <p><strong>Disclaimer:</strong> Craft responsibly and safely.</p>
+              </div>
             </div>
-            <div className="text-card-foreground space-y-4">
-              <p className="text-lg leading-relaxed">
-                <strong>Personal Use Only:</strong> All models provided on QuoCraft are intended 
-                for personal, educational, and non-commercial use only.
-              </p>
-              <p className="text-lg leading-relaxed">
-                <strong>Attribution:</strong> If you share your creations on social media, 
-                we'd love a mention @QuoCraft - but it's not required!
-              </p>
-              <p className="text-lg leading-relaxed">
-                <strong>Disclaimer:</strong> QuoCraft provides templates "as is" and is not 
-                responsible for any injuries that may occur during crafting. Please craft responsibly!
-              </p>
-              <p className="text-base text-muted-foreground">
-                For questions about licensing or commercial use, please reach out via our social channels.
-              </p>
+
+            {/* Community */}
+            <div className="bg-card rounded-2xl p-6 shadow-card">
+              <div className="flex items-center gap-3 mb-4">
+                <MessageCircle className="h-6 w-6 text-violet" />
+                <h2 className="text-xl font-bold text-card-foreground">Join Our Community</h2>
+              </div>
+              <div className="text-card-foreground space-y-3 text-sm">
+                <p>Connect with fellow crafters and share your amazing creations!</p>
+                <p>Get tips, inspiration, and help from our friendly community.</p>
+                <p>Perfect for workshops, schools, and craft time!</p>
+              </div>
             </div>
+
           </div>
         </div>
       </section>
@@ -136,11 +120,11 @@ export default function Information() {
       {/* Social Links */}
       <section className="py-16 px-4">
         <div className="container mx-auto max-w-4xl">
-          <h2 className="text-3xl font-bold text-center mb-12" style={{ color: 'hsl(var(--primary))' }}>
-            Connect With Us! 🌟
+          <h2 className="text-2xl font-bold text-center mb-8" style={{ color: 'hsl(var(--primary))' }}>
+            Connect With Us!
           </h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-2xl mx-auto">
             {socialLinks.map((social) => {
               const Icon = social.icon;
               return (
@@ -151,19 +135,19 @@ export default function Information() {
                   rel="noopener noreferrer"
                   className="block"
                 >
-                  <div className="btn-social text-center py-6 px-4 group">
-                    <Icon className="h-8 w-8 mx-auto mb-3 group-hover:scale-110 transition-transform duration-300" />
-                    <h3 className="text-xl font-bold mb-2">{social.name}</h3>
-                    <p className="text-sm opacity-90">{social.handle}</p>
+                  <div className="btn-social text-center py-4 px-3 group">
+                    <Icon className="h-6 w-6 mx-auto mb-2 group-hover:scale-110 transition-transform duration-300" />
+                    <h3 className="text-base font-bold mb-1">{social.name}</h3>
+                    <p className="text-xs opacity-90">{social.handle}</p>
                   </div>
                 </a>
               );
             })}
           </div>
           
-          <div className="text-center mt-12">
-            <p className="text-lg opacity-80">
-              Join our community and share your amazing creations! 🎉
+          <div className="text-center mt-8">
+            <p className="text-sm opacity-80">
+              Join our community and share your amazing creations!
             </p>
           </div>
         </div>

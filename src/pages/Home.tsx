@@ -5,25 +5,21 @@ import heroImage from '@/assets/hero-papercraft.jpg';
 const steps = [
   {
     icon: Download,
-    emoji: '🖥️',
     title: 'Download',
     description: 'Choose your favorite model'
   },
   {
     icon: Printer,
-    emoji: '🖨️',
     title: 'Print',
     description: 'Print on regular paper'
   },
   {
     icon: Scissors,
-    emoji: '✂️',
     title: 'Cut & Paste',
     description: 'Follow the folding lines'
   },
   {
     icon: Share,
-    emoji: '🎉',
     title: 'Share',
     description: 'Show off your creation!'
   }
@@ -63,7 +59,7 @@ export default function Home() {
               onClick={() => navigate('/gallery')}
               className="btn-hero text-xl px-12 py-6"
             >
-              Explore Models 🚀
+              Explore Models
             </button>
           </div>
         </div>
@@ -76,7 +72,7 @@ export default function Home() {
             How It Works
           </h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 gap-4 max-w-2xl mx-auto">
             {steps.map((step, index) => {
               const Icon = step.icon;
               return (
@@ -84,13 +80,12 @@ export default function Home() {
                   key={index}
                   className="text-center group"
                 >
-                  <div className="card-model mb-6 group-hover:shadow-glow transition-all duration-500">
-                    <div className="text-6xl mb-4">{step.emoji}</div>
-                    <Icon className="h-8 w-8 mx-auto mb-4 text-primary" />
-                    <h3 className="text-xl font-bold mb-3 text-foreground">
+                  <div className="card-model p-4 group-hover:shadow-glow transition-all duration-500">
+                    <Icon className="h-10 w-10 mx-auto mb-3 text-primary" />
+                    <h3 className="text-lg font-bold mb-2 text-foreground">
                       {step.title}
                     </h3>
-                    <p className="text-muted-foreground">
+                    <p className="text-sm text-muted-foreground">
                       {step.description}
                     </p>
                   </div>
@@ -114,7 +109,7 @@ export default function Home() {
             onClick={() => navigate('/gallery')}
             className="btn-playful bg-primary text-primary-foreground text-lg"
           >
-            Browse Gallery 📚
+            Browse Gallery
           </button>
         </div>
       </section>

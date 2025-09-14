@@ -12,20 +12,17 @@ const menuItems = [
   { 
     path: '/', 
     label: 'Home', 
-    icon: Home,
-    emoji: '🏠'
+    icon: Home
   },
   { 
     path: '/gallery', 
     label: 'Paper Models Gallery', 
-    icon: Package,
-    emoji: '📦'
+    icon: Package
   },
   { 
     path: '/info', 
     label: 'Information', 
-    icon: Info,
-    emoji: 'ℹ️'
+    icon: Info
   },
 ];
 
@@ -75,16 +72,15 @@ export default function Sidebar({ isOpen, onToggle }: SidebarProps) {
                 to={item.path}
                 onClick={() => onToggle()}
                 className={({ isActive }) => cn(
-                  "flex items-center gap-4 p-4 rounded-xl font-semibold transition-all duration-300",
+                  "flex items-center gap-3 p-3 rounded-xl font-semibold transition-all duration-300",
                   "hover:bg-sidebar-accent hover:scale-105",
                   isActive 
                     ? "bg-primary text-primary-foreground shadow-glow" 
                     : "text-sidebar-foreground hover:text-sidebar-accent-foreground"
                 )}
               >
-                <span className="text-2xl">{item.emoji}</span>
                 <Icon className="h-5 w-5" />
-                <span className="text-lg">{item.label}</span>
+                <span className="text-base">{item.label}</span>
               </NavLink>
             );
           })}

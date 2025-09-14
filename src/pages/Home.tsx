@@ -1,6 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 import { Download, Printer, Scissors, Share } from 'lucide-react';
 import heroImage from '@/assets/hero-papercraft.jpg';
+import papercraftCube from '@/assets/papercraft-cube.jpeg';
+import quocraftLogo from '@/assets/quocraft-logo.png';
 
 const steps = [
   {
@@ -57,7 +59,7 @@ export default function Home() {
             {/* CTA Button */}
             <button
               onClick={() => navigate('/gallery')}
-              className="btn-hero text-xl px-12 py-6"
+              className="btn-solid-yellow text-xl px-12 py-6"
             >
               Explore Models
             </button>
@@ -71,6 +73,24 @@ export default function Home() {
           <h2 className="title-playful text-center mb-16">
             How It Works
           </h2>
+
+          {/* Hero Images */}
+          <div className="flex justify-center items-center gap-8 mb-12">
+            <div className="relative">
+              <img 
+                src={papercraftCube} 
+                alt="Papercraft cube models"
+                className="w-32 h-32 md:w-40 md:h-40 object-cover rounded-2xl shadow-card"
+              />
+            </div>
+            <div className="relative">
+              <img 
+                src={quocraftLogo} 
+                alt="QuoCraft logo"
+                className="w-24 h-24 md:w-32 md:h-32 object-contain"
+              />
+            </div>
+          </div>
           
           <div className="grid grid-cols-2 gap-4 max-w-2xl mx-auto">
             {steps.map((step, index) => {
@@ -107,7 +127,7 @@ export default function Home() {
           </p>
           <button
             onClick={() => navigate('/gallery')}
-            className="btn-playful bg-primary text-primary-foreground text-lg"
+            className="btn-solid-lime text-lg"
           >
             Browse Gallery
           </button>

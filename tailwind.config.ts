@@ -35,6 +35,8 @@ export default {
         blue: "hsl(var(--blue))",
         pink: "hsl(var(--pink))",
         lime: "hsl(var(--lime))",
+        "navy-blue": "hsl(var(--navy-blue))",
+        "button-grey": "hsl(var(--button-grey))",
         
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
@@ -106,12 +108,6 @@ export default {
         "float": "float 6s ease-in-out infinite",
       },
       
-      backgroundImage: {
-        'gradient-primary': 'var(--gradient-primary)',
-        'gradient-violet-lime': 'var(--gradient-violet-lime)',
-        'gradient-blue-pink': 'var(--gradient-blue-pink)',
-        'gradient-playful': 'var(--gradient-playful)',
-      },
       
       boxShadow: {
         'card': 'var(--shadow-card)',

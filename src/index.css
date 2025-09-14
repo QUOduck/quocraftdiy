@@ -52,6 +52,10 @@
     --gradient-blue-pink: linear-gradient(135deg, hsl(var(--blue)), hsl(var(--pink)));
     --gradient-playful: linear-gradient(45deg, hsl(var(--primary)), hsl(var(--violet)), hsl(var(--lime)));
     
+    /* Solid Button Colors */
+    --navy-blue: 220 60% 25%;
+    --button-grey: 220 10% 35%;
+    
     /* Shadows */
     --shadow-card: 0 4px 20px -2px hsl(var(--violet) / 0.15);
     --shadow-button: 0 4px 15px -3px hsl(var(--primary) / 0.4);
@@ -131,17 +135,18 @@
 @layer components {
   /* Button Variants */
   .btn-hero {
-    @apply bg-primary text-primary-foreground font-bold py-4 px-8 rounded-2xl;
+    @apply text-white font-bold py-4 px-8 rounded-2xl;
     @apply hover:scale-105 active:scale-95;
     @apply transition-all duration-300;
+    background-color: hsl(var(--navy-blue));
     box-shadow: var(--shadow-button);
-    background: var(--gradient-violet-lime);
   }
   
   .btn-playful {
-    @apply font-semibold py-3 px-6 rounded-xl;
+    @apply font-semibold py-3 px-6 rounded-xl text-white;
     @apply hover:scale-105 active:scale-95;
     @apply transition-all duration-300;
+    background-color: hsl(var(--button-grey));
     box-shadow: var(--shadow-button);
   }
   
@@ -149,7 +154,23 @@
     @apply font-medium py-3 px-6 rounded-xl text-white;
     @apply hover:scale-105 active:scale-95;
     @apply transition-all duration-300;
-    background: var(--gradient-blue-pink);
+    background-color: hsl(var(--violet));
+  }
+  
+  .btn-solid-lime {
+    @apply font-semibold py-3 px-6 rounded-xl text-black;
+    @apply hover:scale-105 active:scale-95;
+    @apply transition-all duration-300;
+    background-color: hsl(var(--lime));
+    box-shadow: var(--shadow-button);
+  }
+
+  .btn-solid-yellow {
+    @apply font-bold py-4 px-8 rounded-2xl text-black;
+    @apply hover:scale-105 active:scale-95;
+    @apply transition-all duration-300;
+    background-color: hsl(var(--primary));
+    box-shadow: var(--shadow-button);
   }
   
   /* Card Styles */

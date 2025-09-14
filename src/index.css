@@ -2,41 +2,66 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* QuoCraft Kids-Friendly Design System - All colors MUST be HSL */
 
 @layer base {
   :root {
+    /* Base Colors */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
+    --foreground: 218 27% 15%;
+    
+    /* Card System */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
+    --card-foreground: 218 27% 15%;
+    
+    /* Primary Brand - Yellow */
+    --primary: 45 100% 51%;
+    --primary-foreground: 218 27% 15%;
+    --primary-glow: 45 100% 65%;
+    
+    /* Secondary - Dark Grey */
+    --secondary: 218 27% 15%;
+    --secondary-foreground: 0 0% 100%;
+    
+    /* Accent Colors */
+    --violet: 270 75% 65%;
+    --blue: 210 100% 60%;
+    --pink: 330 75% 70%;
+    --lime: 90 75% 55%;
+    
+    /* Muted Colors */
+    --muted: 210 20% 96%;
+    --muted-foreground: 218 27% 45%;
+    
+    /* Interactive States */
+    --accent: 45 100% 51%;
+    --accent-foreground: 218 27% 15%;
+    
+    /* Status Colors */
+    --destructive: 0 75% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    /* Borders & Inputs */
+    --border: 210 20% 90%;
+    --input: 210 20% 96%;
+    --ring: 45 100% 51%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-violet-lime: linear-gradient(135deg, hsl(var(--violet)), hsl(var(--lime)));
+    --gradient-blue-pink: linear-gradient(135deg, hsl(var(--blue)), hsl(var(--pink)));
+    --gradient-playful: linear-gradient(45deg, hsl(var(--primary)), hsl(var(--violet)), hsl(var(--lime)));
+    
+    /* Shadows */
+    --shadow-card: 0 4px 20px -2px hsl(var(--violet) / 0.15);
+    --shadow-button: 0 4px 15px -3px hsl(var(--primary) / 0.4);
+    --shadow-glow: 0 0 30px hsl(var(--primary) / 0.3);
+    
+    /* Animations */
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    --radius: 1rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -91,6 +116,77 @@ All colors MUST be HSL.
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Sidebar Styling */
+    --sidebar-background: 218 27% 15%;
+    --sidebar-foreground: 45 100% 51%;
+    --sidebar-primary: 45 100% 51%;
+    --sidebar-primary-foreground: 218 27% 15%;
+    --sidebar-accent: 270 75% 65%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 218 27% 25%;
+    --sidebar-ring: 45 100% 51%;
+  }
+}
+
+@layer components {
+  /* Button Variants */
+  .btn-hero {
+    @apply bg-primary text-primary-foreground font-bold py-4 px-8 rounded-2xl;
+    @apply hover:scale-105 active:scale-95;
+    @apply transition-all duration-300;
+    box-shadow: var(--shadow-button);
+    background: var(--gradient-violet-lime);
+  }
+  
+  .btn-playful {
+    @apply font-semibold py-3 px-6 rounded-xl;
+    @apply hover:scale-105 active:scale-95;
+    @apply transition-all duration-300;
+    box-shadow: var(--shadow-button);
+  }
+  
+  .btn-social {
+    @apply font-medium py-3 px-6 rounded-xl text-white;
+    @apply hover:scale-105 active:scale-95;
+    @apply transition-all duration-300;
+    background: var(--gradient-blue-pink);
+  }
+  
+  /* Card Styles */
+  .card-model {
+    @apply bg-card rounded-2xl p-6 cursor-pointer;
+    @apply hover:scale-105 transition-all duration-300;
+    box-shadow: var(--shadow-card);
+  }
+  
+  .card-model:hover {
+    box-shadow: 0 8px 30px -2px hsl(var(--violet) / 0.25);
+  }
+  
+  /* Typography */
+  .title-hero {
+    @apply text-6xl md:text-8xl font-black tracking-tight;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: var(--shadow-glow);
+  }
+  
+  .title-playful {
+    @apply text-3xl md:text-4xl font-bold;
+    color: hsl(var(--primary));
+  }
+  
+  /* Backgrounds */
+  .bg-playful {
+    background: radial-gradient(circle at 20% 80%, hsl(var(--violet) / 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, hsl(var(--lime) / 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, hsl(var(--pink) / 0.05) 0%, transparent 50%);
+  }
+  
+  .bg-secondary-dark {
+    background: hsl(var(--secondary));
   }
 }
 
@@ -100,6 +196,25 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  
+  /* Scrollbar Styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary));
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary-glow));
   }
 }

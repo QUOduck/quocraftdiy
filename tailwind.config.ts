@@ -19,14 +19,23 @@ export default {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          glow: "hsl(var(--primary-glow))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
         },
+        
+        // QuoCraft Brand Colors
+        violet: "hsl(var(--violet))",
+        blue: "hsl(var(--blue))",
+        pink: "hsl(var(--pink))",
+        lime: "hsl(var(--lime))",
+        
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
@@ -80,10 +89,38 @@ export default {
             height: "0",
           },
         },
+        "float": {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-10px)" }
+        },
+        "pulse": {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0.8" }
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "bounce-gentle": "bounce 2s infinite",
+        "pulse-glow": "pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+        "float": "float 6s ease-in-out infinite",
+      },
+      
+      backgroundImage: {
+        'gradient-primary': 'var(--gradient-primary)',
+        'gradient-violet-lime': 'var(--gradient-violet-lime)',
+        'gradient-blue-pink': 'var(--gradient-blue-pink)',
+        'gradient-playful': 'var(--gradient-playful)',
+      },
+      
+      boxShadow: {
+        'card': 'var(--shadow-card)',
+        'button': 'var(--shadow-button)',
+        'glow': 'var(--shadow-glow)',
+      },
+      
+      fontFamily: {
+        'sans': ['Inter', 'system-ui', 'sans-serif'],
       },
     },
   },

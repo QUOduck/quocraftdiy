@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect } from 'react';
-import { Search, Download, Clock, FileText } from 'lucide-react';
+import { Search, Download, Clock, FileText, X } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 
 interface Model {
@@ -23,6 +23,7 @@ export default function Gallery() {
   const [searchTerm, setSearchTerm] = useState('');
   const [models, setModels] = useState<Model[]>([]);
   const [loading, setLoading] = useState(true);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   useEffect(() => {
     fetchModelsFromGoogleSheets();
@@ -75,18 +76,14 @@ export default function Gallery() {
   };
 
   return (
-    <div className="min-h-screen bg-background relative">
-      {/* Frost Blur Effects */}
-      <div className="frost-blur-top" />
-      <div className="frost-blur-bottom" />
-      
+    <div className="min-h-screen bg-soft-gradient relative">
       {/* Header Section */}
       <section className="bg-playful py-12 px-4">
         <div className="container mx-auto">
-          <h1 className="title-playful text-center mb-8">
+          <h1 className="title-playful text-center mb-8 hover:scale-105 transition-transform duration-300">
             Paper Models Gallery
           </h1>
-          <p className="text-lg text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-center text-muted-foreground mb-8 max-w-2xl mx-auto hover:scale-105 transition-transform duration-300">
             Discover amazing papercraft models! Search, download, and start creating.
           </p>
           
@@ -139,11 +136,12 @@ export default function Gallery() {
                       <img
                         src={model.image}
                         alt={model.title}
-                        className="w-full aspect-square object-cover"
+                        className="w-full aspect-square object-cover cursor-pointer hover:scale-105 transition-transform duration-300"
+                        onClick={() => setSelectedImage(model.image)}
                       />
                       {/* Title Overlay */}
                       <div className="absolute top-0 left-0 right-0 bg-gradient-to-b from-black/60 to-transparent p-4">
-                        <h3 className="text-white font-bold text-lg leading-tight">
+                        <h3 className="text-white font-bold text-lg leading-tight hover:scale-105 transition-transform duration-300">
                           {model.title}
                         </h3>
                       </div>
@@ -185,6 +183,29 @@ export default function Gallery() {
           )}
         </div>
       </section>
+
+      {/* Image Modal */}
+      {selectedImage && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
+          onClick={() => setSelectedImage(null)}
+        >
+          <div className="relative max-w-4xl max-h-4xl p-4">
+            <button
+              onClick={() => setSelectedImage(null)}
+              className="absolute top-2 right-2 bg-white rounded-full p-2 hover:bg-gray-100 transition-colors z-10"
+            >
+              <X className="h-6 w-6 text-black" />
+            </button>
+            <img
+              src={selectedImage}
+              alt="Full size model"
+              className="max-w-full max-h-full object-contain rounded-lg"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -27,17 +27,13 @@ const socialLinks = [
 export default function Information() {
   return (
     <div className="min-h-screen bg-secondary-dark text-secondary-foreground relative">
-      {/* Frost Blur Effects */}
-      <div className="frost-blur-top" />
-      <div className="frost-blur-bottom" />
-      
       {/* Header */}
       <section className="py-12 px-4 pt-24">
         <div className="container mx-auto text-center">
-          <h1 className="text-5xl font-bold mb-6" style={{ color: 'hsl(var(--primary))' }}>
+          <h1 className="text-5xl font-bold mb-6 hover:scale-105 transition-transform duration-300" style={{ color: 'hsl(var(--primary))' }}>
             Information & About
           </h1>
-          <p className="text-xl opacity-80 max-w-2xl mx-auto">
+          <p className="text-xl opacity-80 max-w-2xl mx-auto hover:opacity-100 transition-opacity duration-300">
             Learn more about QuoCraft, safety guidelines, and connect with our community!
           </p>
         </div>
@@ -77,15 +73,15 @@ export default function Information() {
                 <ul className="space-y-2 text-sm">
                   <li className="flex items-start gap-2">
                     <span className="text-lime font-bold text-xs">•</span>
-                    <span>Always ask an adult for help with scissors</span>
+                    <span className="text-black">Always ask an adult for help with scissors</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-lime font-bold text-xs">•</span>
-                    <span>Work in a well-lit area</span>
+                    <span className="text-black">Work in a well-lit area</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-lime font-bold text-xs">•</span>
-                    <span>Use child-safe glue</span>
+                    <span className="text-black">Use child-safe glue</span>
                   </li>
                 </ul>
               </div>
@@ -124,7 +120,7 @@ export default function Information() {
       {/* Social Links */}
       <section className="py-16 px-4 pb-24">
         <div className="container mx-auto max-w-4xl">
-          <h2 className="text-2xl font-bold text-center mb-8" style={{ color: 'hsl(var(--primary))' }}>
+          <h2 className="text-2xl font-bold text-center mb-8 hover:scale-105 transition-transform duration-300" style={{ color: 'hsl(var(--primary))' }}>
             Connect With Us!
           </h2>
           

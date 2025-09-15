@@ -29,6 +29,11 @@
     --pink: 330 75% 70%;
     --lime: 90 75% 55%;
     
+    /* New Colors */
+    --light-lime: 90 60% 70%;
+    --pastel-violet: 270 50% 75%;
+    --light-violet: 270 40% 85%;
+    
     /* Muted Colors */
     --muted: 210 20% 96%;
     --muted-foreground: 218 27% 45%;
@@ -51,6 +56,9 @@
     --gradient-violet-lime: linear-gradient(135deg, hsl(var(--violet)), hsl(var(--lime)));
     --gradient-blue-pink: linear-gradient(135deg, hsl(var(--blue)), hsl(var(--pink)));
     --gradient-playful: linear-gradient(45deg, hsl(var(--primary)), hsl(var(--violet)), hsl(var(--lime)));
+    --gradient-soft-violet: linear-gradient(135deg, hsl(var(--light-violet) / 0.3), hsl(var(--pastel-violet) / 0.2));
+    --gradient-soft-lime: linear-gradient(135deg, hsl(var(--light-lime) / 0.2), hsl(var(--lime) / 0.1));
+    --gradient-soft-pink: linear-gradient(135deg, hsl(var(--pink) / 0.15), hsl(var(--violet) / 0.1));
     
     /* Solid Button Colors */
     --navy-blue: 220 60% 25%;
@@ -133,26 +141,6 @@
 }
 
 @layer components {
-  /* Frost Blur Effects */
-  .frost-blur-top {
-    @apply fixed top-0 left-0 w-full h-20 z-40 pointer-events-none;
-    backdrop-filter: blur(20px);
-    background: linear-gradient(to bottom, 
-      hsl(var(--background) / 0.8) 0%, 
-      hsl(var(--background) / 0.4) 50%, 
-      transparent 100%);
-    -webkit-backdrop-filter: blur(20px);
-  }
-  
-  .frost-blur-bottom {
-    @apply fixed bottom-0 left-0 w-full h-20 z-40 pointer-events-none;
-    backdrop-filter: blur(20px);
-    background: linear-gradient(to top, 
-      hsl(var(--background) / 0.8) 0%, 
-      hsl(var(--background) / 0.4) 50%, 
-      transparent 100%);
-    -webkit-backdrop-filter: blur(20px);
-  }
 
   /* Model Card Styles */
   .card-model-gallery {
@@ -169,7 +157,7 @@
   /* Button Variants */
   .btn-hero {
     @apply text-white font-bold py-4 px-8 rounded-2xl;
-    @apply hover:scale-105 active:scale-95;
+    @apply hover:scale-105 hover:shadow-glow active:scale-95;
     @apply transition-all duration-300;
     background-color: hsl(var(--navy-blue));
     box-shadow: var(--shadow-button);
@@ -177,7 +165,7 @@
   
   .btn-playful {
     @apply font-semibold py-3 px-6 rounded-xl text-white;
-    @apply hover:scale-105 active:scale-95;
+    @apply hover:scale-105 hover:shadow-glow active:scale-95;
     @apply transition-all duration-300;
     background-color: hsl(var(--button-grey));
     box-shadow: var(--shadow-button);
@@ -185,14 +173,14 @@
   
   .btn-social {
     @apply font-medium py-3 px-6 rounded-xl text-white;
-    @apply hover:scale-105 active:scale-95;
+    @apply hover:scale-105 hover:shadow-glow active:scale-95;
     @apply transition-all duration-300;
     background-color: hsl(var(--violet));
   }
   
   .btn-solid-lime {
     @apply font-semibold py-3 px-6 rounded-xl text-black;
-    @apply hover:scale-105 active:scale-95;
+    @apply hover:scale-105 hover:shadow-glow active:scale-95;
     @apply transition-all duration-300;
     background-color: hsl(var(--lime));
     box-shadow: var(--shadow-button);
@@ -200,7 +188,7 @@
 
   .btn-solid-yellow {
     @apply font-bold py-4 px-8 rounded-2xl text-black;
-    @apply hover:scale-105 active:scale-95;
+    @apply hover:scale-105 hover:shadow-glow active:scale-95;
     @apply transition-all duration-300;
     background-color: hsl(var(--primary));
     box-shadow: var(--shadow-button);
@@ -208,8 +196,9 @@
   
   /* Card Styles */
   .card-model {
-    @apply bg-card rounded-2xl p-6 cursor-pointer;
+    @apply rounded-2xl p-6 cursor-pointer;
     @apply hover:scale-105 transition-all duration-300;
+    background: var(--gradient-soft-violet);
     box-shadow: var(--shadow-card);
   }
   
@@ -234,13 +223,19 @@
   
   /* Backgrounds */
   .bg-playful {
-    background: radial-gradient(circle at 20% 80%, hsl(var(--violet) / 0.1) 0%, transparent 50%),
+    background: var(--gradient-soft-lime),
+                radial-gradient(circle at 20% 80%, hsl(var(--violet) / 0.1) 0%, transparent 50%),
                 radial-gradient(circle at 80% 20%, hsl(var(--lime) / 0.1) 0%, transparent 50%),
                 radial-gradient(circle at 40% 40%, hsl(var(--pink) / 0.05) 0%, transparent 50%);
   }
   
   .bg-secondary-dark {
-    background: hsl(var(--secondary));
+    background: var(--gradient-soft-pink),
+                hsl(var(--secondary));
+  }
+  
+  .bg-soft-gradient {
+    background: var(--gradient-soft-violet);
   }
 }
 

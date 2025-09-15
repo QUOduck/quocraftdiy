@@ -35,6 +35,9 @@ export default {
         blue: "hsl(var(--blue))",
         pink: "hsl(var(--pink))",
         lime: "hsl(var(--lime))",
+        "light-lime": "hsl(var(--light-lime))",
+        "pastel-violet": "hsl(var(--pastel-violet))",
+        "light-violet": "hsl(var(--light-violet))",
         "navy-blue": "hsl(var(--navy-blue))",
         "button-grey": "hsl(var(--button-grey))",
         

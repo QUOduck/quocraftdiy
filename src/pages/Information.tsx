@@ -11,14 +11,14 @@ const socialLinks = [
   {
     name: 'YouTube',
     handle: 'TheQuoDuck',
-    url: 'https://youtube.com/@thequoduck',
+    url: 'https://youtube.com/@quoduckcode?si=v-nDeobi6dpITy0E',
     icon: Youtube,
     gradient: 'bg-gradient-to-r from-red-500 to-red-600'
   },
   {
     name: 'Discord',
     handle: 'TheQuoDuckGames',
-    url: 'https://discord.com/users/thequoduckgames',
+    url: 'https://discord.gg/TtuzkGhM',
     icon: MessageCircle,
     gradient: 'bg-gradient-to-r from-blue-500 to-indigo-600'
   }

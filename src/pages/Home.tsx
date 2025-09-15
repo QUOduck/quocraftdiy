@@ -11,7 +11,7 @@ const steps = [{
 }, {
   icon: Scissors,
   title: 'Cut & Paste',
-  description: 'Follow the folding lines'
+  description: 'Cut along borders'
 }, {
   icon: Share,
   title: 'Share',

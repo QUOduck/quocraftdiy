@@ -26,9 +26,13 @@ const socialLinks = [
 
 export default function Information() {
   return (
-    <div className="min-h-screen bg-secondary-dark text-secondary-foreground">
+    <div className="min-h-screen bg-secondary-dark text-secondary-foreground relative">
+      {/* Frost Blur Effects */}
+      <div className="frost-blur-top" />
+      <div className="frost-blur-bottom" />
+      
       {/* Header */}
-      <section className="py-12 px-4">
+      <section className="py-12 px-4 pt-24">
         <div className="container mx-auto text-center">
           <h1 className="text-5xl font-bold mb-6" style={{ color: 'hsl(var(--primary))' }}>
             Information & About
@@ -118,7 +122,7 @@ export default function Information() {
       </section>
 
       {/* Social Links */}
-      <section className="py-16 px-4">
+      <section className="py-16 px-4 pb-24">
         <div className="container mx-auto max-w-4xl">
           <h2 className="text-2xl font-bold text-center mb-8" style={{ color: 'hsl(var(--primary))' }}>
             Connect With Us!

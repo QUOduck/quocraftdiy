@@ -133,6 +133,39 @@
 }
 
 @layer components {
+  /* Frost Blur Effects */
+  .frost-blur-top {
+    @apply fixed top-0 left-0 w-full h-20 z-40 pointer-events-none;
+    backdrop-filter: blur(20px);
+    background: linear-gradient(to bottom, 
+      hsl(var(--background) / 0.8) 0%, 
+      hsl(var(--background) / 0.4) 50%, 
+      transparent 100%);
+    -webkit-backdrop-filter: blur(20px);
+  }
+  
+  .frost-blur-bottom {
+    @apply fixed bottom-0 left-0 w-full h-20 z-40 pointer-events-none;
+    backdrop-filter: blur(20px);
+    background: linear-gradient(to top, 
+      hsl(var(--background) / 0.8) 0%, 
+      hsl(var(--background) / 0.4) 50%, 
+      transparent 100%);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  /* Model Card Styles */
+  .card-model-gallery {
+    @apply rounded-2xl overflow-hidden cursor-pointer;
+    @apply hover:scale-105 transition-all duration-300;
+    background-color: hsl(var(--navy-blue));
+    box-shadow: 0 8px 25px -5px hsl(var(--navy-blue) / 0.3);
+  }
+  
+  .card-model-gallery:hover {
+    box-shadow: 0 12px 35px -5px hsl(var(--navy-blue) / 0.4);
+  }
+
   /* Button Variants */
   .btn-hero {
     @apply text-white font-bold py-4 px-8 rounded-2xl;

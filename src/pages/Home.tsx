@@ -31,7 +31,11 @@ export default function Home() {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen relative">
+      {/* Frost Blur Effects */}
+      <div className="frost-blur-top" />
+      <div className="frost-blur-bottom" />
+      
       {/* Hero Section */}
       <section className="relative bg-playful py-20 px-4">
         <div className="container mx-auto text-center">
@@ -68,7 +72,7 @@ export default function Home() {
       </section>
 
       {/* Steps Section */}
-      <section className="py-20 px-4 bg-background">
+      <section className="py-20 px-4 bg-background pt-24 pb-24">
         <div className="container mx-auto">
           <h2 className="title-playful text-center mb-16">
             How It Works

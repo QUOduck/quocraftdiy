@@ -1,82 +1,85 @@
-import { useState, useMemo } from 'react';
-import { Search, Download, ExternalLink } from 'lucide-react';
+import { useState, useMemo, useEffect } from 'react';
+import { Search, Download, Clock, FileText } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 
-// Mock data structure for Google Sheets integration
-const mockModels = [
-  {
-    id: 1,
-    title: 'Cute Penguin',
-    description: 'Adorable low-poly penguin perfect for beginners',
-    thumbnailUrl: 'https://images.unsplash.com/photo-1551986782-d0169b3f8fa7?w=400&h=300&fit=crop&crop=faces',
-    downloadLink: '#download-penguin',
-    difficulty: 'Easy'
-  },
-  {
-    id: 2,
-    title: 'Dragon Castle',
-    description: 'Majestic castle with towers and dragons',
-    thumbnailUrl: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=300&fit=crop',
-    downloadLink: '#download-castle',
-    difficulty: 'Hard'
-  },
-  {
-    id: 3,
-    title: 'Space Rocket',
-    description: 'Blast off to space with this awesome rocket',
-    thumbnailUrl: 'https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=400&h=300&fit=crop',
-    downloadLink: '#download-rocket',
-    difficulty: 'Medium'
-  },
-  {
-    id: 4,
-    title: 'Flower Garden',
-    description: 'Beautiful papercraft flowers to decorate your room',
-    thumbnailUrl: 'https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=400&h=300&fit=crop',
-    downloadLink: '#download-flowers',
-    difficulty: 'Easy'
-  },
-  {
-    id: 5,
-    title: 'Robot Buddy',
-    description: 'Friendly robot companion for endless adventures',
-    thumbnailUrl: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=300&fit=crop',
-    downloadLink: '#download-robot',
-    difficulty: 'Medium'
-  },
-  {
-    id: 6,
-    title: 'Pirate Ship',
-    description: 'Sail the seven seas with this detailed ship',
-    thumbnailUrl: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=400&h=300&fit=crop',
-    downloadLink: '#download-ship',
-    difficulty: 'Hard'
-  }
-];
+interface Model {
+  id: number;
+  image: string;
+  title: string;
+  description: string;
+  gdrive: string;
+  difficulty: string;
+  pages: string;
+  buildTime: string;
+}
 
 const difficultyColors = {
-  'Easy': 'bg-lime text-white',
+  'Easy': 'bg-lime text-black',
   'Medium': 'bg-blue text-white', 
   'Hard': 'bg-pink text-white'
 };
 
 export default function Gallery() {
   const [searchTerm, setSearchTerm] = useState('');
+  const [models, setModels] = useState<Model[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchModelsFromGoogleSheets();
+  }, []);
+
+  const fetchModelsFromGoogleSheets = async () => {
+    try {
+      const response = await fetch(
+        'https://docs.google.com/spreadsheets/d/1dkJztNJ4AeISoU5UQaF0lRfvaaWkMPITHESDhww3aIM/export?format=csv&gid=0'
+      );
+      const csvText = await response.text();
+      
+      // Parse CSV (skip header row)
+      const rows = csvText.split('\n').slice(1);
+      const parsedModels: Model[] = rows
+        .filter(row => row.trim()) // Remove empty rows
+        .map((row, index) => {
+          const columns = row.split(',');
+          return {
+            id: index + 1,
+            image: columns[0]?.trim() || '',
+            title: columns[1]?.trim() || '',
+            description: columns[2]?.trim() || '',
+            gdrive: columns[3]?.trim() || '',
+            difficulty: columns[4]?.trim() || 'Medium',
+            pages: columns[5]?.trim() || '',
+            buildTime: columns[6]?.trim() || ''
+          };
+        });
+      
+      setModels(parsedModels);
+    } catch (error) {
+      console.error('Error fetching models:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const filteredModels = useMemo(() => {
-    return mockModels.filter(model =>
+    return models.filter(model =>
       model.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       model.description.toLowerCase().includes(searchTerm.toLowerCase())
     );
-  }, [searchTerm]);
+  }, [models, searchTerm]);
 
-  const handleDownload = (model: typeof mockModels[0]) => {
-    // In a real implementation, this would trigger the actual download
-    alert(`Downloading ${model.title}! 🎉\n\nIn the real app, this would download the PDF from: ${model.downloadLink}`);
+  const handleDownload = (model: Model) => {
+    if (model.gdrive) {
+      window.open(model.gdrive, '_blank');
+    }
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative">
+      {/* Frost Blur Effects */}
+      <div className="frost-blur-top" />
+      <div className="frost-blur-bottom" />
+      
       {/* Header Section */}
       <section className="bg-playful py-12 px-4">
         <div className="container mx-auto">
@@ -102,12 +105,16 @@ export default function Gallery() {
       </section>
 
       {/* Models Grid */}
-      <section className="py-12 px-4">
+      <section className="py-12 px-4 pt-24 pb-24">
         <div className="container mx-auto">
-          {filteredModels.length === 0 ? (
+          {loading ? (
+            <div className="text-center py-20">
+              <p className="text-2xl text-muted-foreground mb-4">Loading models...</p>
+            </div>
+          ) : filteredModels.length === 0 ? (
             <div className="text-center py-20">
               <p className="text-2xl text-muted-foreground mb-4">
-                No models found 😢
+                No models found
               </p>
               <p className="text-muted-foreground">
                 Try searching for something else!
@@ -121,47 +128,54 @@ export default function Gallery() {
                 </h2>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 {filteredModels.map((model) => (
                   <div
                     key={model.id}
-                    className="card-model group"
+                    className="card-model-gallery"
                   >
                     {/* Model Image */}
-                    <div className="relative mb-4 rounded-xl overflow-hidden">
+                    <div className="relative">
                       <img
-                        src={model.thumbnailUrl}
+                        src={model.image}
                         alt={model.title}
-                        className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
+                        className="w-full aspect-square object-cover"
                       />
+                      {/* Title Overlay */}
+                      <div className="absolute top-0 left-0 right-0 bg-gradient-to-b from-black/60 to-transparent p-4">
+                        <h3 className="text-white font-bold text-lg leading-tight">
+                          {model.title}
+                        </h3>
+                      </div>
+                      {/* Difficulty Badge */}
                       <div className="absolute top-3 right-3">
-                        <span className={`px-3 py-1 rounded-full text-sm font-medium ${difficultyColors[model.difficulty as keyof typeof difficultyColors]}`}>
+                        <span className={`px-2 py-1 rounded-full text-xs font-medium ${difficultyColors[model.difficulty as keyof typeof difficultyColors]}`}>
                           {model.difficulty}
                         </span>
                       </div>
                     </div>
 
-                    {/* Model Info */}
-                    <h3 className="text-xl font-bold mb-2">{model.title}</h3>
-                    <p className="text-muted-foreground mb-4 text-sm">
-                      {model.description}
-                    </p>
+                    {/* Card Content */}
+                    <div className="p-4">
+                      {/* Meta Info */}
+                      <div className="flex items-center gap-4 mb-3 text-white/80 text-xs">
+                        <div className="flex items-center gap-1">
+                          <FileText className="h-3 w-3" />
+                          <span>{model.pages} pages</span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <Clock className="h-3 w-3" />
+                          <span>{model.buildTime}</span>
+                        </div>
+                      </div>
 
-                    {/* Action Buttons */}
-                    <div className="flex gap-3">
+                      {/* Download Button */}
                       <button
                         onClick={() => handleDownload(model)}
-                        className="flex-1 btn-playful bg-gradient-violet-lime text-white flex items-center justify-center gap-2"
+                        className="w-full btn-solid-lime flex items-center justify-center gap-2 text-sm py-2"
                       >
                         <Download className="h-4 w-4" />
                         Download PDF
-                      </button>
-                      <button
-                        onClick={() => window.open(model.downloadLink, '_blank')}
-                        className="p-3 rounded-xl border-2 border-primary/20 hover:border-primary hover:bg-primary/10 transition-all duration-300"
-                        title="View details"
-                      >
-                        <ExternalLink className="h-4 w-4" />
                       </button>
                     </div>
                   </div>

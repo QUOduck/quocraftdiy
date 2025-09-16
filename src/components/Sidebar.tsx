@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { Home, Package, Info, X, Menu } from 'lucide-react';
+import { Home, Package, Video, Info, X, Menu } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface SidebarProps {
@@ -18,6 +18,11 @@ const menuItems = [
     path: '/gallery', 
     label: 'Paper Models Gallery', 
     icon: Package
+  },
+  { 
+    path: '/craft-videos', 
+    label: 'Craft Videos', 
+    icon: Video
   },
   { 
     path: '/info', 

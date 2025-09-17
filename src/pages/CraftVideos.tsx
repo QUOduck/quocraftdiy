@@ -115,55 +115,63 @@ export default function CraftVideos() {
             {filteredVideos.map((video) => (
               <div
                 key={video.id}
-                className="card-model-gallery group cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-glow"
+                className="card-model-gallery group cursor-pointer transform transition-all duration-300 hover:scale-105"
               >
-                {/* Thumbnail or Play Icon */}
-                <div 
-                  className="relative aspect-square mb-4 rounded-lg overflow-hidden bg-secondary/20 flex items-center justify-center"
-                  onClick={() => handleWatch(video.youtubeLink)}
-                >
-                  {video.thumbnail ? (
-                    <img
-                      src={video.thumbnail}
-                      alt={video.title}
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.style.display = 'none';
-                        const playIcon = target.nextElementSibling as HTMLElement;
-                        if (playIcon) playIcon.style.display = 'flex';
-                      }}
-                    />
-                  ) : (
-                    <div className="flex items-center justify-center w-full h-full">
-                      <div className="transform rotate-12 bg-red-400 text-white p-4 rounded-lg shadow-lg">
-                        <Play className="h-12 w-12" fill="currentColor" />
+                {/* Video Thumbnail */}
+                <div className="relative">
+                  <div 
+                    className="relative aspect-video rounded-lg overflow-hidden bg-secondary/20 flex items-center justify-center cursor-pointer"
+                    onClick={() => handleWatch(video.youtubeLink)}
+                  >
+                    {video.thumbnail ? (
+                      <img
+                        src={video.thumbnail}
+                        alt={video.title}
+                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.style.display = 'none';
+                          const playIcon = target.nextElementSibling as HTMLElement;
+                          if (playIcon) playIcon.style.display = 'flex';
+                        }}
+                      />
+                    ) : (
+                      <div className="flex items-center justify-center w-full h-full">
+                        <div className="transform rotate-12 text-white p-4 rounded-lg shadow-lg" style={{backgroundColor: 'hsl(var(--soft-red))'}}>
+                          <Play className="h-12 w-12" fill="currentColor" />
+                        </div>
                       </div>
-                    </div>
-                  )}
-                  
-                  {/* Play overlay for thumbnails */}
-                  {video.thumbnail && (
-                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
-                      <div className="transform rotate-12 bg-red-400 text-white p-2 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <Play className="h-6 w-6" fill="currentColor" />
+                    )}
+                    
+                    {/* Play overlay for thumbnails */}
+                    {video.thumbnail && (
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
+                        <div className="transform rotate-12 text-white p-2 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{backgroundColor: 'hsl(var(--soft-red))'}}>
+                          <Play className="h-6 w-6" fill="currentColor" />
+                        </div>
                       </div>
-                    </div>
-                  )}
+                    )}
+                  </div>
+
+                  {/* Title Overlay */}
+                  <div className="absolute top-0 left-0 right-0 bg-gradient-to-b from-black/60 to-transparent p-4">
+                    <h3 className="text-white font-bold text-lg leading-tight hover:scale-105 transition-transform duration-300">
+                      {video.title}
+                    </h3>
+                  </div>
                 </div>
 
-                {/* Title */}
-                <h3 className="text-lg font-semibold text-foreground mb-3 line-clamp-2 group-hover:text-primary transition-colors">
-                  {video.title}
-                </h3>
-
-                {/* Watch Button */}
-                <Button
-                  onClick={() => handleWatch(video.youtubeLink)}
-                  className="w-full bg-red-400 hover:bg-red-500 text-white font-semibold transition-all duration-300 hover:shadow-lg hover:scale-105"
-                >
-                  Watch
-                </Button>
+                {/* Card Content */}
+                <div className="p-4">
+                  {/* Watch Button */}
+                  <button
+                    onClick={() => handleWatch(video.youtubeLink)}
+                    className="w-full btn-soft-red flex items-center justify-center gap-2"
+                  >
+                    <Play className="h-4 w-4" fill="currentColor" />
+                    Watch Video
+                  </button>
+                </div>
               </div>
             ))}
           </div>

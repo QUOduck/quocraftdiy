@@ -14,6 +14,7 @@ export default function CraftVideos() {
   const [searchTerm, setSearchTerm] = useState('');
   const [videos, setVideos] = useState<Video[]>([]);
   const [loading, setLoading] = useState(true);
+  const [loadedImages, setLoadedImages] = useState<Set<string>>(new Set());
 
   const fetchVideosFromGoogleSheets = async () => {
     try {
@@ -63,6 +64,10 @@ export default function CraftVideos() {
 
   const handleWatch = (youtubeLink: string) => {
     window.open(youtubeLink, '_blank');
+  };
+
+  const handleImageLoad = (videoId: string) => {
+    setLoadedImages(prev => new Set(prev).add(videoId));
   };
 
   if (loading) {
@@ -127,7 +132,12 @@ export default function CraftVideos() {
                       <img
                         src={video.thumbnail}
                         alt={video.title}
-                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                        className={`w-full h-full object-cover transition-all duration-500 group-hover:scale-105 ${
+                          loadedImages.has(video.id) 
+                            ? 'opacity-100 transform scale-100' 
+                            : 'opacity-0 transform scale-95'
+                        }`}
+                        onLoad={() => handleImageLoad(video.id)}
                         onError={(e) => {
                           const target = e.target as HTMLImageElement;
                           target.style.display = 'none';

@@ -25,6 +25,11 @@ const menuItems = [
     icon: Video
   },
   { 
+    path: '/colouring-pages', 
+    label: 'Colouring Pages', 
+    icon: Package
+  },
+  { 
     path: '/info', 
     label: 'Information', 
     icon: Info

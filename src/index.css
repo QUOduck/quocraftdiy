@@ -207,6 +207,18 @@
     background-color: hsl(var(--soft-red) / 0.8);
   }
   
+  .btn-soft-blue {
+    @apply font-semibold py-2 px-4 rounded-lg text-white;
+    @apply hover:scale-105 hover:shadow-glow active:scale-95;
+    @apply transition-all duration-300;
+    background-color: hsl(var(--primary));
+    box-shadow: var(--shadow-button);
+  }
+  
+  .btn-soft-blue:hover {
+    background-color: hsl(var(--primary) / 0.8);
+  }
+  
   /* Card Styles */
   .card-model {
     @apply rounded-2xl p-6 cursor-pointer;

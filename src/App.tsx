@@ -7,6 +7,7 @@ import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import Gallery from "./pages/Gallery";
 import CraftVideos from "./pages/CraftVideos";
+import ColouringPages from "./pages/ColouringPages";
 import Information from "./pages/Information";
 import NotFound from "./pages/NotFound";
 
@@ -23,6 +24,7 @@ const App = () => (
             <Route index element={<Home />} />
             <Route path="gallery" element={<Gallery />} />
             <Route path="craft-videos" element={<CraftVideos />} />
+            <Route path="colouring-pages" element={<ColouringPages />} />
             <Route path="info" element={<Information />} />
           </Route>
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

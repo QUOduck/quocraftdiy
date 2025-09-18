@@ -80,7 +80,7 @@ export default function CraftVideos() {
 
   return (
     <div className="min-h-screen bg-gradient-soft">
-      <main className="max-w-7xl mx-auto p-6 lg:pl-96">
+      <main className="max-w-7xl mx-auto p-6">
         {/* Header */}
         <div className="mb-8 text-center">
           <h1 className="title-hero text-4xl md:text-5xl lg:text-6xl font-bold mb-4">

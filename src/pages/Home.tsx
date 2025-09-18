@@ -41,8 +41,7 @@ export default function Home() {
           {/* Hero Description */}
           <div className="max-w-4xl mx-auto mb-12">
             <p className="text-xl md:text-2xl text-foreground mb-8 leading-relaxed hover:scale-105 transition-transform duration-300">
-              Turn 3D models into real papercraft! Download from QuoCraft, 
-              print at home, cut/paste, and share your creations with friends!
+              Welcome to QuoCraft, the ultimate resource for hands-on creativity! Our website is dedicated to inspiring makers of all ages with a comprehensive library of printable papercraft models, from simple projects to intricate designs. You can also explore our video gallery for step-by-step craft tutorials and download a wide variety of printable colouring pages to spark your imagination.
             </p>
             
             {/* CTA Button */}

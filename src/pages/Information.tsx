@@ -2,38 +2,33 @@ import { Instagram, Youtube, MessageCircle, Shield, Heart, Scissors, FileText } 
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Button } from '@/components/ui/button';
-
-const socialLinks = [
-  {
-    name: 'Instagram',
-    handle: '@thequoduckcode',
-    url: 'https://instagram.com/thequoduckcode',
-    icon: Instagram,
-    gradient: 'bg-gradient-to-r from-pink-500 to-purple-500'
-  },
-  {
-    name: 'YouTube',
-    handle: 'TheQuoDuck',
-    url: 'https://youtube.com/@quoduckcode?si=v-nDeobi6dpITy0E',
-    icon: Youtube,
-    gradient: 'bg-gradient-to-r from-red-500 to-red-600'
-  },
-  {
-    name: 'Discord',
-    handle: 'TheQuoDuckGames',
-    url: 'https://discord.gg/TtuzkGhM',
-    icon: MessageCircle,
-    gradient: 'bg-gradient-to-r from-blue-500 to-indigo-600'
-  }
-];
-
+const socialLinks = [{
+  name: 'Instagram',
+  handle: '@thequoduckcode',
+  url: 'https://instagram.com/thequoduckcode',
+  icon: Instagram,
+  gradient: 'bg-gradient-to-r from-pink-500 to-purple-500'
+}, {
+  name: 'YouTube',
+  handle: 'TheQuoDuck',
+  url: 'https://youtube.com/@quoduckcode?si=v-nDeobi6dpITy0E',
+  icon: Youtube,
+  gradient: 'bg-gradient-to-r from-red-500 to-red-600'
+}, {
+  name: 'Discord',
+  handle: 'TheQuoDuckGames',
+  url: 'https://discord.gg/TtuzkGhM',
+  icon: MessageCircle,
+  gradient: 'bg-gradient-to-r from-blue-500 to-indigo-600'
+}];
 export default function Information() {
-  return (
-    <div className="min-h-screen bg-secondary-dark text-secondary-foreground relative">
+  return <div className="min-h-screen bg-secondary-dark text-secondary-foreground relative">
       {/* Header */}
       <section className="py-12 px-4 pt-24">
         <div className="container mx-auto text-center">
-          <h1 className="text-5xl font-bold mb-6 hover:scale-105 transition-transform duration-300" style={{ color: 'hsl(var(--primary))' }}>
+          <h1 className="text-5xl font-bold mb-6 hover:scale-105 transition-transform duration-300" style={{
+          color: 'hsl(var(--primary))'
+        }}>
             Information & About
           </h1>
           <p className="text-xl opacity-80 max-w-2xl mx-auto hover:opacity-100 transition-opacity duration-300">
@@ -123,29 +118,23 @@ export default function Information() {
       {/* Social Links */}
       <section className="py-16 px-4 pb-24">
         <div className="container mx-auto max-w-4xl">
-          <h2 className="text-2xl font-bold text-center mb-8 hover:scale-105 transition-transform duration-300" style={{ color: 'hsl(var(--primary))' }}>
+          <h2 className="text-2xl font-bold text-center mb-8 hover:scale-105 transition-transform duration-300" style={{
+          color: 'hsl(var(--primary))'
+        }}>
             Connect With Us!
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-2xl mx-auto">
-            {socialLinks.map((social) => {
-              const Icon = social.icon;
-              return (
-                <a
-                  key={social.name}
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block"
-                >
+            {socialLinks.map(social => {
+            const Icon = social.icon;
+            return <a key={social.name} href={social.url} target="_blank" rel="noopener noreferrer" className="block">
                   <div className="btn-social text-center py-4 px-3 group">
                     <Icon className="h-6 w-6 mx-auto mb-2 group-hover:scale-110 transition-transform duration-300" />
                     <h3 className="text-base font-bold mb-1">{social.name}</h3>
                     <p className="text-xs opacity-90">{social.handle}</p>
                   </div>
-                </a>
-              );
-            })}
+                </a>;
+          })}
           </div>
           
           <div className="text-center mt-8">
@@ -155,7 +144,7 @@ export default function Information() {
             
             <Dialog>
               <DialogTrigger asChild>
-                <Button variant="outline" className="gap-2">
+                <Button variant="outline" className="gap-2 text-gray-950">
                   <FileText className="h-4 w-4" />
                   See Full Information
                 </Button>
@@ -288,6 +277,5 @@ export default function Information() {
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 }

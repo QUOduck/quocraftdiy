@@ -1,4 +1,7 @@
-import { Instagram, Youtube, MessageCircle, Shield, Heart, Scissors } from 'lucide-react';
+import { Instagram, Youtube, MessageCircle, Shield, Heart, Scissors, FileText } from 'lucide-react';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { ScrollArea } from '@/components/ui/scroll-area';
+import { Button } from '@/components/ui/button';
 
 const socialLinks = [
   {
@@ -146,9 +149,142 @@ export default function Information() {
           </div>
           
           <div className="text-center mt-8">
-            <p className="text-sm opacity-80">
+            <p className="text-sm opacity-80 mb-4">
               Join our community and share your amazing creations!
             </p>
+            
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button variant="outline" className="gap-2">
+                  <FileText className="h-4 w-4" />
+                  See Full Information
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="max-w-4xl max-h-[80vh] p-0">
+                <DialogHeader className="px-6 py-4 border-b">
+                  <DialogTitle className="text-lg font-bold">QuoCraft - Complete Information</DialogTitle>
+                </DialogHeader>
+                <ScrollArea className="px-6 py-4 h-full">
+                  <div className="space-y-6 text-sm leading-relaxed">
+                    
+                    <section>
+                      <h2 className="text-lg font-bold mb-3 flex items-center gap-2">
+                        ✨ About QuoCraft
+                      </h2>
+                      <p>
+                        Welcome to QuoCraft, a creative space designed to spark imagination and hands-on fun for kids, teachers, and families. This platform brings together three wonderful types of resources — printable paper models, colouring pages, and hand-picked craft videos — all in one easy-to-use place.
+                      </p>
+                    </section>
+
+                    <section>
+                      <h2 className="text-lg font-bold mb-3 flex items-center gap-2">
+                        🎨 Printable Paper Models
+                      </h2>
+                      <p>
+                        At QuoCraft, you'll find a growing gallery of ready-to-print paper models. Simply download the PDF, print it on your home printer, and start cutting, folding, and pasting. Each model comes with clear labels and fold lines to make assembly easier, even for beginners. Whether it's for a classroom project, a weekend activity, or just to relax and create something by hand, these models bring paper to life in fun and imaginative ways.
+                      </p>
+                    </section>
+
+                    <section>
+                      <h2 className="text-lg font-bold mb-3 flex items-center gap-2">
+                        🖍️ Colouring Pages
+                      </h2>
+                      <p>
+                        Our colouring pages are perfect for kids who love to explore colours, practice hand control, or just enjoy relaxing with crayons, markers, or pencils. They are designed to be printable at home, making it quick and easy to get started. Great for personal fun, classroom use, or even group workshops, colouring pages are a wonderful way to explore creativity.
+                      </p>
+                    </section>
+
+                    <section>
+                      <h2 className="text-lg font-bold mb-3 flex items-center gap-2">
+                        🎥 External Craft Videos
+                      </h2>
+                      <p>
+                        In addition to printable resources, QuoCraft offers a curated selection of YouTube craft videos. Each video is carefully handpicked to inspire creativity and teach new craft skills in a fun and engaging way. These videos are safe, family-friendly, and suitable for learners of different ages, providing step-by-step instructions that complement the paper models and colouring activities available here.
+                      </p>
+                    </section>
+
+                    <section>
+                      <h2 className="text-lg font-bold mb-3 flex items-center gap-2">
+                        🧒 Kid-Friendly and Easy to Navigate
+                      </h2>
+                      <p className="mb-3">
+                        QuoCraft is designed with kids in mind. The homepage is bright, friendly, and easy to understand. A sidebar menu with a simple hamburger toggle button allows users to quickly jump between the main sections:
+                      </p>
+                      <ul className="space-y-1 ml-4">
+                        <li>🏠 Home</li>
+                        <li>📄 Paper Models Gallery</li>
+                        <li>🎬 Craft Videos</li>
+                        <li>🎨 Colouring Pages</li>
+                      </ul>
+                      <p className="mt-3">
+                        This structure makes it effortless for children (and adults) to find what they need.
+                      </p>
+                    </section>
+
+                    <section>
+                      <h2 className="text-lg font-bold mb-3 flex items-center gap-2">
+                        🏫 Perfect for Workshops, Schools, and Home Fun
+                      </h2>
+                      <p>
+                        The printable models, colouring sheets, and craft ideas can be used in workshops, school activities, family craft sessions, or personal projects. They're a great way to combine fun and learning, encourage creativity, and bring people together through art and craft.
+                      </p>
+                    </section>
+
+                    <section>
+                      <h2 className="text-lg font-bold mb-3 flex items-center gap-2">
+                        ⚠️ Safety Disclaimer
+                      </h2>
+                      <div className="bg-orange-50 border border-orange-200 rounded-lg p-4">
+                        <p className="mb-2">
+                          While QuoCraft provides fun resources for everyone, adult or teacher supervision is strongly recommended when children use scissors, cutters, or any other sharp tools. Safety should always come first.
+                        </p>
+                        <p className="mb-2">
+                          I, the creator of QuoCraft, am not responsible for any injury, damage, or loss resulting from the use of these resources.
+                        </p>
+                        <p className="font-semibold">
+                          Please ensure proper care is taken, especially when younger children are involved.
+                        </p>
+                      </div>
+                    </section>
+
+                    <section>
+                      <h2 className="text-lg font-bold mb-3 flex items-center gap-2">
+                        👨‍💻 About the Creator
+                      </h2>
+                      <p>
+                        QuoCraft was created by Kartik Pawar, an indie developer who loves blending creativity with technology. The platform is proudly built with the help of Lovable, a no-code tool that makes building apps and websites easier.
+                      </p>
+                    </section>
+
+                    <section>
+                      <h2 className="text-lg font-bold mb-3 flex items-center gap-2">
+                        🌐 Stay Connected
+                      </h2>
+                      <p className="mb-3">
+                        Want to follow along or share your creations? You can connect with me on:
+                      </p>
+                      <ul className="space-y-1 ml-4 mb-3">
+                        <li>📸 Instagram: @thequoduckcode</li>
+                        <li>▶️ YouTube: TheQuoDuck</li>
+                        <li>🎮 Discord: TheQuoDuckGames</li>
+                      </ul>
+                      <p>
+                        Sharing QuoCraft with attribution on social media is always appreciated 💛. It helps this community grow and lets more people discover the joy of crafting, colouring, and creating together.
+                      </p>
+                    </section>
+
+                    <section>
+                      <div className="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-lg p-4">
+                        <p className="text-center font-medium">
+                          ✨ QuoCraft is all about sparking imagination, learning through play, and creating lasting memories with simple yet meaningful projects. Print, colour, craft, and share — the possibilities are endless!
+                        </p>
+                      </div>
+                    </section>
+                    
+                  </div>
+                </ScrollArea>
+              </DialogContent>
+            </Dialog>
           </div>
         </div>
       </section>

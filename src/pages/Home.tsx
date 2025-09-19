@@ -67,7 +67,7 @@ export default function Home() {
                 }}>
                       {step.title}
                     </h3>
-                    <p className="text-sm text-white">
+                    <p className="text-sm text-purple-900">
                       {step.description}
                     </p>
                   </div>

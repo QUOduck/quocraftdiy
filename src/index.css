@@ -60,11 +60,6 @@
     --gradient-soft-lime: linear-gradient(135deg, hsl(var(--light-lime) / 0.2), hsl(var(--lime) / 0.1));
     --gradient-soft-pink: linear-gradient(135deg, hsl(var(--pink) / 0.15), hsl(var(--violet) / 0.1));
     
-    /* Carousel Slide Gradients */
-    --gradient-carousel-blue: linear-gradient(135deg, #87CEEB 0%, #4682B4 100%);
-    --gradient-carousel-pink: linear-gradient(135deg, #FFB6C1 0%, #FF69B4 100%);
-    --gradient-carousel-orange: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-    
     /* Solid Button Colors */
     --navy-blue: 220 60% 25%;
     --button-grey: 220 10% 35%;
@@ -266,37 +261,6 @@
   
   .bg-soft-gradient {
     background: var(--gradient-soft-violet);
-  }
-  
-  /* Carousel Styles */
-  .carousel-slide-blue {
-    background: var(--gradient-carousel-blue);
-  }
-  
-  .carousel-slide-pink {
-    background: var(--gradient-carousel-pink);
-  }
-  
-  .carousel-slide-orange {
-    background: var(--gradient-carousel-orange);
-  }
-  
-  /* Material You Button Styles */
-  .btn-material-glow {
-    @apply font-bold py-4 px-8 rounded-full text-white;
-    @apply hover:scale-110 active:scale-95;
-    @apply transition-all duration-300;
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 8px 32px rgba(255, 255, 255, 0.2), 
-                0 0 20px rgba(255, 255, 255, 0.1);
-  }
-  
-  .btn-material-glow:hover {
-    background: rgba(255, 255, 255, 0.3);
-    box-shadow: 0 12px 40px rgba(255, 255, 255, 0.3),
-                0 0 30px rgba(255, 255, 255, 0.2);
   }
 }
 

@@ -60,6 +60,11 @@
     --gradient-soft-lime: linear-gradient(135deg, hsl(var(--light-lime) / 0.2), hsl(var(--lime) / 0.1));
     --gradient-soft-pink: linear-gradient(135deg, hsl(var(--pink) / 0.15), hsl(var(--violet) / 0.1));
     
+    /* Hero Carousel Gradients - Matching Reference Image */
+    --hero-blue: linear-gradient(180deg, hsl(195, 100%, 85%) 0%, hsl(195, 100%, 65%) 100%);
+    --hero-pink: linear-gradient(180deg, hsl(350, 100%, 90%) 0%, hsl(15, 100%, 70%) 100%);
+    --hero-yellow: linear-gradient(180deg, hsl(55, 100%, 70%) 0%, hsl(35, 100%, 60%) 100%);
+    
     /* Solid Button Colors */
     --navy-blue: 220 60% 25%;
     --button-grey: 220 10% 35%;
@@ -261,6 +266,70 @@
   
   .bg-soft-gradient {
     background: var(--gradient-soft-violet);
+  }
+
+  /* Hero Carousel Styles */
+  .hero-slide-blue {
+    background: var(--hero-blue);
+  }
+  
+  .hero-slide-pink {
+    background: var(--hero-pink);
+  }
+  
+  .hero-slide-yellow {
+    background: var(--hero-yellow);
+  }
+
+  .hero-button {
+    @apply inline-flex items-center justify-center;
+    @apply px-8 py-4 rounded-full font-semibold text-lg;
+    @apply bg-white text-black shadow-lg;
+    @apply hover:shadow-xl hover:scale-105 active:scale-95;
+    @apply transition-all duration-300 ease-in-out;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1), 0 0 0 0 rgba(255, 255, 255, 0.5);
+  }
+  
+  .hero-button:hover {
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15), 0 0 30px rgba(255, 255, 255, 0.3);
+  }
+
+  .carousel-container {
+    @apply relative w-full h-screen overflow-hidden;
+  }
+
+  .slide-content {
+    @apply absolute inset-0 flex flex-col justify-start;
+    @apply px-12 pt-20 md:px-16 md:pt-24;
+    @apply transition-all duration-700 ease-in-out;
+  }
+
+  .slide-title {
+    @apply text-5xl md:text-7xl font-black text-black mb-8;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  .slide-headline {
+    @apply text-4xl md:text-6xl font-medium text-black mb-2;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  .slide-headline-bold {
+    @apply text-4xl md:text-6xl font-black text-black mb-12;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  /* Sidebar Styles */
+  .sidebar-overlay {
+    @apply fixed inset-0 bg-black/50 backdrop-blur-sm z-40;
+    @apply transition-opacity duration-300;
+  }
+
+  .sidebar-content {
+    @apply fixed top-0 left-0 h-full w-80 z-50;
+    @apply bg-white/90 backdrop-blur-md border-r border-white/20;
+    @apply shadow-2xl transition-transform duration-300;
+    backdrop-filter: blur(20px);
   }
 }
 

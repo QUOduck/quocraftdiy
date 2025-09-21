@@ -149,11 +149,11 @@ export default function Information() {
                   See Full Information
                 </Button>
               </DialogTrigger>
-              <DialogContent className="max-w-4xl max-h-[80vh] p-0 flex flex-col">
-                <DialogHeader className="px-6 py-4 border-b flex-shrink-0">
+              <DialogContent className="max-w-4xl max-h-[80vh] p-0">
+                <DialogHeader className="px-6 py-4 border-b">
                   <DialogTitle className="text-lg font-bold">QuoCraft - Complete Information</DialogTitle>
                 </DialogHeader>
-                <ScrollArea className="flex-1 px-6 py-4 max-h-[60vh]">
+                <ScrollArea className="px-6 py-4 h-full">
                   <div className="space-y-6 text-sm leading-relaxed">
                     
                     <section>
